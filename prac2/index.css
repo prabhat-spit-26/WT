@@ -27,12 +27,12 @@ body {
 }
 
 .formInput {
-    width: calc(100% - 22px); /* Adjusting width for padding and border */
+    width: calc(100% - 22px);
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: white; /* Ensure white background */
+    background-color: white;
 }
 
 .submitButton {
