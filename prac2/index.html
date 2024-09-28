@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="registrationContainer">
+        <h2 class="formTitle">Registration Form</h2>
+        <form class="registrationForm" action="#" method="POST">
+            <label for="name" class="formLabel">Name:</label>
+            <input type="text" id="name" name="name" class="formInput" required>
+            <span class="errorMessage" id="nameError"></span>
+
+            <label for="username" class="formLabel">Username:</label>
+            <input type="text" id="username" name="username" class="formInput" required>
+            <span class="errorMessage" id="usernameError"></span>
+
+            <label for="email" class="formLabel">Email:</label>
+            <input type="email" id="email" name="email" class="formInput" required>
+            <span class="errorMessage" id="emailError"></span>
+
+            <label for="phone" class="formLabel">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" class="formInput" required>
+            <span class="errorMessage" id="phoneError"></span>
+
+            <label for="password" class="formLabel">Password:</label>
+            <input type="password" id="password" name="password" class="formInput" required>
+            <span class="errorMessage" id="passwordError"></span>
+
+            <label for="confirmPassword" class="formLabel">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" class="formInput" required>
+            <span class="errorMessage" id="confirmPasswordError"></span>
+
+            <button type="submit" class="submitButton">Register</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+index.html
