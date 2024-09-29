@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordError = document.getElementById('passwordError');
     const confirmPasswordError = document.getElementById('confirmPasswordError');
 
-    // Event listeners for blur events
+    // Event listeners for events
     nameInput.addEventListener('blur', validateName);
     usernameInput.addEventListener('blur', validateUsername);
     emailInput.addEventListener('blur', validateEmail);
@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let isValid = false;
-    function validateName() {
 
+    function validateName() {
         if (nameInput.value.trim() === "") {
             nameError.textContent = "Name cannot be empty.";
             isValid = false;
@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validateUsername() {
-
         if (usernameInput.value.trim() === "") {
             usernameError.textContent = "Username cannot be empty.";
             isValid = false;
@@ -57,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validateEmail() {
-
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(emailInput.value)) {
             emailError.textContent = "Please enter a valid email address.";
@@ -69,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validatePhone() {
-
         const phonePattern = /^\d{10}$/;
         if (!phonePattern.test(phoneInput.value)) {
             phoneError.textContent = "Please enter a valid 10-digit phone number.";
@@ -92,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validatePasswordMatch() {
-
         if (passwordInput.value !== confirmPasswordInput.value || passwordInput.value == '') {
             confirmPasswordError.textContent = "Passwords do not match.";
             isValid = false;

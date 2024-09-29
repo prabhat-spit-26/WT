@@ -1,4 +1,3 @@
-/* Basic styling for the body */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -9,7 +8,6 @@ body {
   height: 100vh;
 }
 
-/* Container for the content */
 .container {
   background-color: white;
   padding: 20px;
@@ -20,20 +18,17 @@ body {
   text-align: center;
 }
 
-/* Icon styling */
 .icon {
   font-size: 40px;
   color: #4caf50;
   margin-bottom: 20px;
 }
 
-/* Title styling */
 h2 {
   color: #333;
   margin-bottom: 15px;
 }
 
-/* User data styling */
 .user-data {
   text-align: left;
   margin: 15px 0;
@@ -42,7 +37,6 @@ h2 {
   border-radius: 5px;
 }
 
-/* Paragraph styling */
 p {
   color: #666;
   font-size: 14px;
