@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     usernameInput.addEventListener('blur', validateUsername);
     emailInput.addEventListener('blur', validateEmail);
     phoneInput.addEventListener('blur', validatePhone);
+    passwordInput.addEventListener('input', validatePassword);
     passwordInput.addEventListener('blur', validatePasswordMatch);
     confirmPasswordInput.addEventListener('blur', validatePasswordMatch);
 
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let isValid = false;
     function validateName() {
-       
+
         if (nameInput.value.trim() === "") {
             nameError.textContent = "Name cannot be empty.";
             isValid = false;
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validateUsername() {
-       
+
         if (usernameInput.value.trim() === "") {
             usernameError.textContent = "Username cannot be empty.";
             isValid = false;
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validateEmail() {
-       
+
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(emailInput.value)) {
             emailError.textContent = "Please enter a valid email address.";
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validatePhone() {
-       
+
         const phonePattern = /^\d{10}$/;
         if (!phonePattern.test(phoneInput.value)) {
             phoneError.textContent = "Please enter a valid 10-digit phone number.";
@@ -79,8 +80,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function validatePassword() {
+        const passwordPattern = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        if (!passwordPattern.test(passwordInput.value)) {
+            passwordError.textContent = "Password must be at least 8 characters long, contain an uppercase letter, and a number.";
+            isValid = false;
+        } else {
+            passwordError.textContent = "";
+            isValid = true;
+        }
+    }
+
     function validatePasswordMatch() {
-       
+
         if (passwordInput.value !== confirmPasswordInput.value || passwordInput.value == '') {
             confirmPasswordError.textContent = "Passwords do not match.";
             isValid = false;
@@ -91,9 +103,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     form.addEventListener('submit', function (event) {
-        if(isValid){clearErrorMessages();}
-        console.log(isValid);
-       
+        event.preventDefault();
+        validateName();
+        validateUsername();
+        validateEmail();
+        validatePhone();
+        validatePassword();
+        validatePasswordMatch();
+
+        if (isValid) {
+            clearErrorMessages();
+            localStorage.setItem('name', nameInput.value.trim());
+            localStorage.setItem('userName', usernameInput.value);
+            localStorage.setItem('email', emailInput.value);
+            localStorage.setItem('phone', phoneInput.value);
+            window.location.href = 'success.html';
+        }
         return isValid;
     });
 });
